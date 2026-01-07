@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Placement Application Tracker</h1>
+        <p>Track and manage your internship and placement applications in one place.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Application Form Section -->
+        <section id="application-form-section">
+            <h2>Add New Application</h2>
+
+            <form id="application-form">
+
+                <div>
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" placeholder="Enter company name" required>
+                </div>
+
+                <div>
+                    <label for="role">Role</label>
+                    <input type="text" id="role" placeholder="Enter role" required>
+                </div>
+
+                <div>
+                    <label for="status">Application Status</label>
+                    <select id="status" required>
+                        <option value="">Select status</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Offer">Offer</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="deadline">Deadline</label>
+                    <input type="date" id="deadline">
+                </div>
+
+                <div>
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" placeholder="Additional notes"></textarea>
+                </div>
+
+                <button type="submit">Add Application</button>
+
+            </form>
+        </section>
+
+        <!-- Filter Section -->
+        <section id="filter-section">
+            <label for="filter-status">Filter by Status:</label>
+            <select id="filter-status">
+                <option value="All">All</option>
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Offer">Offer</option>
+            </select>
+        </section>
+
+        <!-- Applications List Section -->
+        <section id="applications-section">
+            <h2>Your Applications</h2>
+
+            <!-- Application cards will be inserted here dynamically -->
+            <div id="applications-list"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
