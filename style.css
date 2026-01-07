@@ -1,1 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #1f2933;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+/* Form Section */
+#application-form-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+#application-form-section h2 {
+    margin-bottom: 15px;
+}
+
+#application-form div {
+    margin-bottom: 15px;
+}
+
+#application-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#application-form input,
+#application-form select,
+#application-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#application-form textarea {
+    resize: vertical;
+}
+
+#application-form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#application-form button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Filter Section */
+#filter-section {
+    margin: 20px 0;
+}
+
+#filter-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#filter-section select {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Applications List */
+#applications-section h2 {
+    margin-bottom: 10px;
+}
+
+#applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Application Card */
+.application-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 5px solid #2563eb;
+}
+
+.application-card p {
+    margin: 4px 0;
+}
+
+.application-card strong {
+    font-weight: bold;
+}
+
+.application-card button {
+    margin-top: 10px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.application-card button:hover {
+    background-color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
 
