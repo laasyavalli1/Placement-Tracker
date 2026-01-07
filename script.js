@@ -50,7 +50,12 @@ function addPlacementToTable(placement) {
   row.innerHTML = `
     <td>${placement.company}</td>
     <td>${placement.role}</td>
-    <td>${placement.status}</td>
+    <td>
+  <span class="status ${placement.status.toLowerCase()}">
+    ${placement.status}
+  </span>
+</td>
+
     <td><button class="delete-btn">Delete</button></td>
   `;
 
