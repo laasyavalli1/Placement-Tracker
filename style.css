@@ -132,6 +132,30 @@ header h1 {
 .application-card button:hover {
     background-color: #b91c1c;
 }
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status.applied {
+  background-color: #f4b400;
+}
+
+.status.interview {
+  background-color: #4285f4;
+}
+
+.status.selected {
+  background-color: #0f9d58;
+}
+
+.status.rejected {
+  background-color: #db4437;
+}
+
 
 /* Responsive */
 @media (max-width: 600px) {
