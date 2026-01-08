@@ -158,6 +158,13 @@ header h1 {
 .status.offer {
   background-color: #9333ea;
 }
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
 
 
 /* Responsive */
