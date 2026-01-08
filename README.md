@@ -3,7 +3,7 @@
 A frontend web application to track and manage internship and placement applications in one place.
 
 ## 🔗 Live Demo
-(Add your GitHub Pages link here)
+https://laasyavalli1.github.io/Placement-Tracker/
 
 ## 📌 Features
 - Add placement or internship applications with company, role, status, deadline, and notes
@@ -15,10 +15,10 @@ A frontend web application to track and manage internship and placement applicat
 - Responsive design for desktop and mobile screens
 
 ## 🛠️ Tech Stack
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- GitHub Pages (Deployment)
+- HTML
+- CSS
+- JavaScript 
+- GitHub Pages 
 
 ## 📂 How It Works
 - User inputs application details through a form
@@ -28,11 +28,16 @@ A frontend web application to track and manage internship and placement applicat
 - All data persists even after page refresh
 
 ## 📸 Screenshots
-(Add 2–3 screenshots of your application UI here)
+
+### Main Dashboard
+![Main Dashboard](home.png)
+
+### Filter by Status
+![Filter Feature](filter.png)
 
 ## 🚀 Future Enhancements
 - Search by company or role
 - Sort applications by deadline or status
-- Backend integration for multi-device access
-- Authentication for personalized tracking
+- Editing the applications
+  
 
