@@ -1,80 +1,94 @@
 // Get elements
-const form = document.getElementById("placement-form");
-const companyInput = document.getElementById("company");
-const roleInput = document.getElementById("role");
-const statusInput = document.getElementById("status");
-const tableBody = document.getElementById("placement-table-body");
+const form = document.getElementById("application-form");
+const applicationsList = document.getElementById("applications-list");
+const filterStatus = document.getElementById("filter-status");
 
 // Load data on page load
-document.addEventListener("DOMContentLoaded", loadPlacements);
+document.addEventListener("DOMContentLoaded", loadApplications);
 
-// Add placement
+// Handle form submit
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const placement = {
-    company: companyInput.value,
-    role: roleInput.value,
-    status: statusInput.value
+  const application = {
+    company: document.getElementById("company").value,
+    role: document.getElementById("role").value,
+    status: document.getElementById("status").value,
+    deadline: document.getElementById("deadline").value,
+    notes: document.getElementById("notes").value
   };
 
-  savePlacement(placement);
-  addPlacementToTable(placement);
+  saveApplication(application);
+  renderApplications();
   form.reset();
 });
 
 // Save to localStorage
-function savePlacement(placement) {
-  let placements = getPlacements();
-  placements.push(placement);
-  localStorage.setItem("placements", JSON.stringify(placements));
+function saveApplication(app) {
+  const applications = getApplications();
+  applications.push(app);
+  localStorage.setItem("applications", JSON.stringify(applications));
 }
 
 // Get from localStorage
-function getPlacements() {
-  return localStorage.getItem("placements")
-    ? JSON.parse(localStorage.getItem("placements"))
+function getApplications() {
+  return localStorage.getItem("applications")
+    ? JSON.parse(localStorage.getItem("applications"))
     : [];
 }
 
-// Load placements on refresh
-function loadPlacements() {
-  const placements = getPlacements();
-  placements.forEach(addPlacementToTable);
+// Load all applications
+function loadApplications() {
+  renderApplications();
 }
 
-// Add row to table
-function addPlacementToTable(placement) {
-  const row = document.createElement("tr");
+// Render applications
+function renderApplications() {
+  applicationsList.innerHTML = "";
 
-  row.innerHTML = `
-    <td>${placement.company}</td>
-    <td>${placement.role}</td>
-    <td>
-  <span class="status ${placement.status.toLowerCase()}">
-    ${placement.status}
-  </span>
-</td>
+  const applications = getApplications();
+  const selectedStatus = filterStatus.value;
 
-    <td><button class="delete-btn">Delete</button></td>
-  `;
+  const filteredApps =
+    selectedStatus === "All"
+      ? applications
+      : applications.filter(app => app.status === selectedStatus);
 
-  row.querySelector(".delete-btn").addEventListener("click", function () {
-    row.remove();
-    deletePlacement(placement);
+  if (filteredApps.length === 0) {
+    applicationsList.innerHTML =
+      "<p>No placement applications added yet.</p>";
+    return;
+  }
+
+  filteredApps.forEach((app, index) => {
+    const card = document.createElement("div");
+    card.className = "application-card";
+
+    card.innerHTML = `
+      <p><strong>Company:</strong> ${app.company}</p>
+      <p><strong>Role:</strong> ${app.role}</p>
+      <p>
+        <strong>Status:</strong>
+        <span class="status ${app.status.toLowerCase()}">
+          ${app.status}
+        </span>
+      </p>
+      ${app.deadline ? `<p><strong>Deadline:</strong> ${app.deadline}</p>` : ""}
+      ${app.notes ? `<p><strong>Notes:</strong> ${app.notes}</p>` : ""}
+      <button onclick="deleteApplication(${index})">Delete</button>
+    `;
+
+    applicationsList.appendChild(card);
   });
-
-  tableBody.appendChild(row);
 }
 
-// Delete placement
-function deletePlacement(placementToDelete) {
-  let placements = getPlacements();
-  placements = placements.filter(
-    p =>
-      p.company !== placementToDelete.company ||
-      p.role !== placementToDelete.role
-  );
-  localStorage.setItem("placements", JSON.stringify(placements));
+// Delete application
+function deleteApplication(index) {
+  const applications = getApplications();
+  applications.splice(index, 1);
+  localStorage.setItem("applications", JSON.stringify(applications));
+  renderApplications();
 }
 
+// Filter change
+filterStatus.addEventListener("change", renderApplications);
