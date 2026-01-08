@@ -56,7 +56,11 @@ function renderApplications() {
 
   if (filteredApps.length === 0) {
     applicationsList.innerHTML =
-      "<p>No placement applications added yet.</p>";
+      <div class="empty-state">
+  <p>No placement applications added yet.</p>
+  <p>Start by adding a company above.</p>
+</div>
+
     return;
   }
 
